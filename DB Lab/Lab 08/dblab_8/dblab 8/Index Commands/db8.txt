@@ -1,0 +1,85 @@
+1--
+
+MariaDB [(none)]> use themepark;
+Database changed
+MariaDB [themepark]> create index parkName_index on themepark(park_name);
+Query OK, 0 rows affected (0.050 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+
+2--
+
+MariaDB [themepark]> create index comp_index on themepark(park_city,park_country);
+Query OK, 0 rows affected (0.033 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+3--
+
+MariaDB [themepark]> show index from themepark\G;
+*************************** 1. row ***************************
+        Table: themepark
+   Non_unique: 0
+     Key_name: PRIMARY
+ Seq_in_index: 1
+  Column_name: PARK_CODE
+    Collation: A
+  Cardinality: 9
+     Sub_part: NULL
+       Packed: NULL
+         Null:
+   Index_type: BTREE
+      Comment:
+Index_comment:
+*************************** 2. row ***************************
+        Table: themepark
+   Non_unique: 1
+     Key_name: parkName_index
+ Seq_in_index: 1
+  Column_name: PARK_NAME
+    Collation: A
+  Cardinality: 9
+     Sub_part: NULL
+       Packed: NULL
+         Null:
+   Index_type: BTREE
+      Comment:
+Index_comment:
+*************************** 3. row ***************************
+        Table: themepark
+   Non_unique: 1
+     Key_name: comp_index
+ Seq_in_index: 1
+  Column_name: PARK_CITY
+    Collation: A
+  Cardinality: 9
+     Sub_part: NULL
+       Packed: NULL
+         Null:
+   Index_type: BTREE
+      Comment:
+Index_comment:
+*************************** 4. row ***************************
+        Table: themepark
+   Non_unique: 1
+     Key_name: comp_index
+ Seq_in_index: 2
+  Column_name: PARK_COUNTRY
+    Collation: A
+  Cardinality: 9
+     Sub_part: NULL
+       Packed: NULL
+         Null:
+   Index_type: BTREE
+      Comment:
+Index_comment:
+4 rows in set (0.043 sec)
+
+
+4--
+Implicit Indexes
+Implicit indexes are indexes that are automatically created by the database server when an object
+is created. Indexes are automatically created for primary key constraints and unique constraints
+
+Unique Indexes
+Unique indexes are for data integrity. A unique index
+does not allow any duplicate values to be inserted into the table.
